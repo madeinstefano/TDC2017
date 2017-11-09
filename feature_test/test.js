@@ -56,6 +56,7 @@ describe( 'Feature Test', () => {
     it( 'Should allow fetures that belong', () => {
       assert( canUseFeature( 'twitter', 'postImage', '2' ) );
       assert( canUseFeature( 'googleplus', 'updateStatus', 4 ) );
+      assert( canUseFeature( 'linkedin', 'updateProfile' ) );
       assert( canUseFeature( 'snapchat', 'useEffect', 4 ) );
     } );
   } );

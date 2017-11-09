@@ -35,12 +35,12 @@
     "lint:1": "eslint dynamic_assignment/ --fix",
     "lint:2": "eslint feature_test/ --fix",
     "lint:3": "eslint null_propagation/ --fix",
-    "lint:4": "eslint proxy/ --fix",
+    "lint:4": "eslint test_question/ --fix",
     "lint": "npm run lint:1 && npm run lint:2 && npm run lint:3 &&npm run lint:4",
     "test:1": "nyc mocha ./dynamic_assignment/test.js",
     "test:2": "nyc mocha ./feature_test/test.js",
     "test:3": "nyc mocha ./null_propagation/test.js",
-    "test:4": "nyc mocha ./proxy/test.js",
+    "test:4": "nyc mocha ./test_question/test.js",
     "test": "npm run test:1 && npm run test:2 && npm run test:3 && npm run test:4"
   }
 }
