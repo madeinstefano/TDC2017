@@ -1,0 +1,46 @@
+{
+  "name": "TDC2017",
+  "version": "1.5.0",
+  "description": "Snippets I used on my talk during the TDC 2017 Porto Alegre",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "3.11.1",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.1.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.6.0",
+    "mocha": "^3.3.0",
+    "nyc": "^10.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:madeinstefano/TDC2017.git"
+  },
+  "keywords": [
+    "TDC2017"
+  ],
+  "engines": {
+    "node": "8.6.0",
+    "npm": "5.4.0"
+  },
+  "contributors": [
+    {
+      "name": "Stéfano Zanata",
+      "email": "stefano.zanata@meltwater.com"
+    }
+  ],
+  "scripts": {
+    "lint:1": "eslint dynamic_assignment/ --fix",
+    "lint:2": "eslint feature_test/ --fix",
+    "lint:3": "eslint null_propagation/ --fix",
+    "lint:4": "eslint proxy/ --fix",
+    "lint": "npm run lint:1 && npm run lint:2 && npm run lint:3 &&npm run lint:4",
+    "test:1": "nyc mocha ./dynamic_assignment/test.js",
+    "test:2": "nyc mocha ./feature_test/test.js",
+    "test:3": "nyc mocha ./null_propagation/test.js",
+    "test:4": "nyc mocha ./proxy/test.js",
+    "test": "npm run test:1 && npm run test:2 && npm run test:3 && npm run test:4"
+  }
+}

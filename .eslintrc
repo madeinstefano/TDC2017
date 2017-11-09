@@ -1,0 +1,48 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "it": true,
+    "describe": true,
+    "context": true,
+    "after": true,
+    "afterEach": true,
+    "before": true,
+    "beforeEach": true,
+    "rootRequire": true
+  },
+  "rules": {
+    "no-var": 1,
+    "no-plusplus": 0,
+    "no-bitwise": 1,
+    "no-mixed-operators": 1,
+    "global-require": 1,
+    "eqeqeq": ["error"],
+    "camelcase": ["error"],
+    "comma-dangle": ["error", "never" ],
+    "space-in-parens": ["warn", "always"],
+    "array-bracket-spacing": ["warn", "always"],
+    "comma-spacing": ["warn", { "before": false, "after": true }],
+    "generator-star-spacing": ["warn", {"before": true, "after": false}],
+    "arrow-parens": ["error", "as-needed"],
+    "no-underscore-dangle": 0,
+    "func-names": 0,
+    "consistent-return": ["warn", {"treatUndefinedAsUnspecified": true}],
+    "no-nested-ternary": 1,
+    "import/no-dynamic-require": 1,
+    "prefer-const": 1,
+    "no-unused-vars": 1,
+    "no-param-reassign": 1,
+    "no-useless-constructor": 1,
+    "no-continue": 0,
+    "class-methods-use-this": 1,
+    "no-new-func": 0,
+    "operator-linebreak": ["warn", "after"],
+    "max-len": ["warn", 120],
+    "no-restricted-syntax": [
+      'error',
+      'ForInStatement',
+      'LabeledStatement',
+      'WithStatement',
+    ]
+  }
+}
