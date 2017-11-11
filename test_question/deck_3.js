@@ -1,32 +1,41 @@
 const ALL_CARDS = require( './all_cards' );
 
-const dataDescr = { enumerable: true, writable: false, configurable: false };
-const accessorDescr = { enumerable: true, configurable: false };
-
-const defProp = value => Object.assign( value, dataDescr );
-const defAccessor = value => Object.assign( value, accessorDescr );
-
 class Deck {
-
   constructor() {
     let cards = [];
 
     Object.defineProperties( this, {
-      shuffle: defProp( {
-        value() { cards = ALL_CARDS.slice().sort( () => 0.5 - Math.random() ); }
-      } ),
-      draw: defProp( {
+      shuffle: {
+        enumerable: true,
+        writable: false,
+        configurable: false,
+        value() {
+          cards = ALL_CARDS.slice().sort( () => 0.5 - Math.random() );
+        }
+      },
+      draw: {
+        enumerable: true,
+        writable: false,
+        configurable: false,
         value: () => cards.pop()
-      } ),
-      length: defAccessor( {
-        get: () => cards.length
-      } ),
-      forEach: defProp( {
+      },
+      forEach: {
+        enumerable: true,
+        writable: false,
+        configurable: false,
         value: fn => Reflect.apply( [].forEach, cards, [ fn ] )
-      } ),
-      [Symbol.iterator]: defProp( {
+      },
+      length: {
+        enumerable: true,
+        configurable: false,
+        get: () => cards.length
+      },
+      [Symbol.iterator]: {
+        enumerable: true,
+        writable: false,
+        configurable: false,
         *value() { yield* cards; }
-      } )
+      }
     } );
 
     this.shuffle();

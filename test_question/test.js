@@ -2,6 +2,7 @@ const chai = require( 'chai' ); // eslint-disable-line import/no-extraneous-depe
 
 const Deck1 = require( './deck_1.js' );
 const Deck2 = require( './deck_2.js' );
+const Deck3short = require( './deck_3_short.js' );
 const Deck3 = require( './deck_3.js' );
 
 const assert = chai.assert;
@@ -50,6 +51,19 @@ function shouldNotExposeInternalArray( DeckClass ) {
   } );
 }
 
+function shouldHaveJustExpectedMethods( DeckClass ) {
+  const deck = new DeckClass();
+  const keys = Reflect.ownKeys( deck ).map( k => k.toString() );
+  const expected = [
+    'shuffle',
+    'draw',
+    'forEach',
+    'length',
+    'Symbol(Symbol.iterator)'
+  ];
+  expect( keys ).to.eql( expected );
+}
+
 describe( 'Deck implementations', () => {
   context( 'Implementation: Array inheritance', () => {
     it( 'Should do the basics', () => {
@@ -62,6 +76,10 @@ describe( 'Deck implementations', () => {
 
     it( 'Should not expose internal array', () => {
       shouldNotExposeInternalArray( Deck1 );
+    } );
+
+    it( 'Should have just the expected props', () => {
+      shouldHaveJustExpectedMethods( Deck1 );
     } );
   } );
 
@@ -77,9 +95,31 @@ describe( 'Deck implementations', () => {
     it( 'Should not expose internal array', () => {
       shouldNotExposeInternalArray( Deck2 );
     } );
+
+    it( 'Should have just the expected props', () => {
+      shouldHaveJustExpectedMethods( Deck2 );
+    } );
   } );
 
   context( 'Implementation: Private Array wrapper', () => {
+    it( 'Should do the basics', () => {
+      basicTest( Deck3short );
+    } );
+
+    it( 'Should not expose unnecessary methods', () => {
+      shouldNotBeArray( Deck3short );
+    } );
+
+    it( 'Should not expose internal array', () => {
+      shouldNotExposeInternalArray( Deck3short );
+    } );
+
+    it( 'Should have just the expected props', () => {
+      shouldHaveJustExpectedMethods( Deck3short );
+    } );
+  } );
+
+  context( 'Implementation: Private Array wrapper Full', () => {
     it( 'Should do the basics', () => {
       basicTest( Deck3 );
     } );
@@ -90,6 +130,10 @@ describe( 'Deck implementations', () => {
 
     it( 'Should not expose internal array', () => {
       shouldNotExposeInternalArray( Deck3 );
+    } );
+
+    it( 'Should have just the expected props', () => {
+      shouldHaveJustExpectedMethods( Deck3 );
     } );
   } );
 } );
